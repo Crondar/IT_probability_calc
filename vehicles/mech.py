@@ -1,6 +1,6 @@
 from hardware import *
 from hardware import Limb
-from mechs.mech1.mech_config import MechConfig
+from mechs.mech_config import MechConfig
 
 
 class Mech:
@@ -43,6 +43,8 @@ class Mech:
                     new_loc = hit_loc + limb.hit_range.max_val - limb.hit_range.min_val + 1
                 elif hit_loc > 12:
                     new_loc = hit_loc - (limb.hit_range.max_val - limb.hit_range.min_val + 1)
+                else:
+                    return hit_loc
                 return self.get_adjusted_hit_location(new_loc)
         return hit_loc
 
@@ -64,6 +66,13 @@ class Mech:
     def reset_round(self):
         for limb in self._limbs:
             limb.reset_armor()
+        self._evasion = self._config.mech_stats.base_evasion
+
+    def reset_full(self):
+        for limb in self._limbs:
+            limb.reset_armor()
+            limb.reset_health()
+            limb.reset_ablative()
         self._evasion = self._config.mech_stats.base_evasion
 
     def display_stats(self):

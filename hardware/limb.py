@@ -17,6 +17,12 @@ class Limb:
     def reset_armor(self):
         self._armor = self._config.armor
 
+    def reset_health(self):
+        self._hp = self._config.hp
+
+    def reset_ablative(self):
+        self._ablative = self._config.ablative_armor
+
     def damage(self, dmg: int, a_pen: int) -> None:
         if self._ablative > 0:
             self._ablative -= a_pen
@@ -37,7 +43,6 @@ class Limb:
             self._hp -= max(-self._armor, 0)
             self._armor = max(self._armor, 0)
             self._armor += pen
-            print(self._armor)
 
     @property
     def hp(self) -> int:
