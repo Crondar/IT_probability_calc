@@ -9,6 +9,7 @@ class WeaponConfig(NamedTuple):
     auto: int = 1
     a_pen: int = 0
     base_edice: int = 0
+    emp: int = 0
 
 
 

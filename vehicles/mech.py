@@ -19,9 +19,11 @@ class Mech:
             self._weapons[k] = w_set
 
         self._evasion = self._config.mech_stats.base_evasion
+        self._charge = self._config.mech_stats.charge
+        self._emp_hardening = self._config.emp_hardening
 
-    def roll_weapon_set(self, set_name: str, additional_mods: int = 0, additional_emods: int = 0) -> list[tuple[int, int]]:
-        dmg_list: list[tuple[int, int]] = []
+    def roll_weapon_set(self, set_name: str, additional_mods: int = 0, additional_emods: int = 0) -> list[tuple[int, int, int]]:
+        dmg_list: list[tuple[int, int, int]] = []
         for weapon in self._weapons[set_name]:
             weapon.additional_mods = additional_mods
             weapon.additional_emods = additional_emods
@@ -48,22 +50,26 @@ class Mech:
                 return self.get_adjusted_hit_location(new_loc)
         return hit_loc
 
-    def strip_evasion(self, damage: list[tuple[int, int]]) -> list[tuple[int, int]]:
-        new_damage: list[tuple[int, int]] = []
+    def strip_evasion(self, damage: list[tuple[int, int, int]]) -> list[tuple[int, int, int]]:
+        new_damage: list[tuple[int, int, int]] = []
         for dmg in range(len(damage)):
             if damage[dmg][0] >= self._evasion:
                 new_damage.append(damage[dmg])
         return new_damage
 
-    def take_damage(self, damage: list[tuple[int, int]]) -> None:
+    def take_damage(self, damage: list[tuple[int, int, int]]) -> None:
         adjusted_dmg = self.strip_evasion(damage)
-
         for dmg in adjusted_dmg:
             hit_loc = self.get_adjusted_hit_location(self.roll_hit_location())
             for limb in self._limbs:
                 if limb.hit_range.contains(hit_loc):
                     print(f"{limb.name}, dmg: {dmg[0]},")
+                    init_hp = limb.hp
                     limb.damage(dmg[0], dmg[1])
+                    if init_hp > limb.hp:
+                        self._charge -= max(dmg[2] - self._emp_hardening, 0)
+                    else:
+                        self._charge -= max(dmg[2] / 2, 0)
 
     def reset_round(self):
         for limb in self._limbs:
@@ -80,6 +86,7 @@ class Mech:
     def display_stats(self):
         for limb in self._limbs:
             print(f"{limb.name}: hp: {limb.hp}, armor: {limb.armor} + {limb.ablative}a")
+        print(f"charge: {self._charge}")
 
 
 

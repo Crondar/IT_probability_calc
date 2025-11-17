@@ -13,7 +13,7 @@ class MechConfig:
 
         self.mech_stats = MechStatsConfig(charge=16, base_evasion=3, reflex=4, intelligence=2, endurance=2)
 
-        self.emp_hardening = False
+        self.emp_hardening = 2
 
         self.hit_location_dice_num = 3
         self.limbs = [

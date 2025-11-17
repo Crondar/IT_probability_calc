@@ -8,5 +8,5 @@ mech1 = Mech(mech_config1)
 mech_config2 = LaserMech()
 mech2 = Mech(mech_config2)
 
-mech1.take_damage(mech2.roll_weapon_set('overdrive'))
-mech1.display_stats()
+mech2.take_damage(mech1.roll_weapon_set('emp'))
+mech2.display_stats()

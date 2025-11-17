@@ -12,6 +12,7 @@ class Weapon:
         self._additional_mods = 0
         self._additional_emods = 0
         self._a_pen = self._config.a_pen
+        self._emp = self._config.emp
 
     def get_damage(self) -> list[int]:
 
@@ -23,10 +24,10 @@ class Weapon:
             success_list.append(attack.get_successes())
         return success_list
 
-    def fire(self) -> list[tuple[int, int]]:
-        dmg_list: list[tuple[int, int]] = []
+    def fire(self) -> list[tuple[int, int, int]]:
+        dmg_list: list[tuple[int, int, int]] = []
         for dmg in self.get_damage():
-            dmg_list.append((dmg, self._a_pen))
+            dmg_list.append((dmg, self._a_pen, self._emp))
         return dmg_list
 
     @property
