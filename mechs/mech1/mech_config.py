@@ -11,7 +11,7 @@ class MechConfig:
         self.dice_config = dice.DiceConfig(sides=6, min_success=5)
         self.edice_config = edice.EDiceConfig(dice_config=self.dice_config, min_explode=6)
 
-        self.mech_stats = MechStatsConfig(charge=10, base_evasion=3, reflex=5, intelligence=1, endurance=2)
+        self.mech_stats = MechStatsConfig(charge=10, base_evasion=1, reflex=5, intelligence=1, endurance=2)
 
         self.emp_hardening = False
 

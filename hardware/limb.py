@@ -31,11 +31,13 @@ class Limb:
                 self._hp -= max(-self._armor, 0)
             self._ablative += a_pen
         else:
-            pen = max(self._armor-a_pen, 0)
+            pen = min(self._armor, a_pen)
             self._armor -= pen
             self._armor -= dmg
             self._hp -= max(-self._armor, 0)
-            self._armor += a_pen
+            self._armor = max(self._armor, 0)
+            self._armor += pen
+            print(self._armor)
 
     @property
     def hp(self) -> int:
