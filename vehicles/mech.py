@@ -1,6 +1,6 @@
 from hardware import *
 from hardware import Limb
-from mechs.mech_config import MechConfig
+from mechs.drone_mech import MechConfig
 
 
 class Mech:
@@ -57,10 +57,12 @@ class Mech:
 
     def take_damage(self, damage: list[tuple[int, int]]) -> None:
         adjusted_dmg = self.strip_evasion(damage)
+
         for dmg in adjusted_dmg:
             hit_loc = self.get_adjusted_hit_location(self.roll_hit_location())
             for limb in self._limbs:
                 if limb.hit_range.contains(hit_loc):
+                    print(f"{limb.name}, dmg: {dmg[0]},")
                     limb.damage(dmg[0], dmg[1])
 
     def reset_round(self):

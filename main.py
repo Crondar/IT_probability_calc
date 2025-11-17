@@ -1,11 +1,12 @@
-from vehicles.mech import Mech as Mech1
-from mechs.mech_config import MechConfig as MechConfig1
+from vehicles.mech import Mech as Mech
+from mechs.drone_mech import MechConfig as MechConfig1
+from mechs.laser_mech import MechConfig as LaserMech
 
 mech_config1 = MechConfig1()
-mech1 = Mech1(mech_config1)
+mech1 = Mech(mech_config1)
 
-mech_config2 = MechConfig1()
-mech2 = Mech1(mech_config2)
+mech_config2 = LaserMech()
+mech2 = Mech(mech_config2)
 
-mech2.take_damage(mech2.roll_weapon_set('drones'))
-mech2.display_stats()
+mech1.take_damage(mech2.roll_weapon_set('overdrive'))
+mech1.display_stats()

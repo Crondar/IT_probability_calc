@@ -30,10 +30,10 @@ class MechConfig:
                                     stat_mod=self.mech_stats.reflex,
                                     dice_config = self.dice_config, edice_config=self.edice_config)
 
-        self.drone = WeaponConfig(a_pen=0, base_dice=2, auto=3, stat_mod=self.mech_stats.reflex,
+        self.drone = WeaponConfig(a_pen=0, base_dice=1, auto=3, stat_mod=self.mech_stats.reflex,
                                   dice_config = self.dice_config, edice_config=self.edice_config)
 
-        self.small_drone = WeaponConfig(a_pen=0, base_dice=1, auto=3, stat_mod=self.mech_stats.reflex,
+        self.small_drone = WeaponConfig(a_pen=0, base_dice=0, auto=3, stat_mod=self.mech_stats.reflex,
                                         dice_config = self.dice_config, edice_config=self.edice_config)
 
 
