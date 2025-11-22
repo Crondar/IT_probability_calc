@@ -1,7 +1,8 @@
 from config import MechStatsConfig
-from hardware import Attack
+# from hardware import Attack, Damage
 from config.weapon import WeaponStatsConfig
-from hardware import Damage
+from hardware.attack import Attack
+from hardware.damage import Damage
 
 class Weapon:
 
@@ -28,10 +29,25 @@ class Weapon:
             success_list.append(attack.get_successes())
         return success_list
 
+    def get_targeted_damage(self, target_mod: int, additional_mods: int, additional_emods: int) -> list[int]:
+        attack = Attack(num_dice=self._config.base_dice + additional_mods + self._stat_mod,
+                        num_edice=self._config.base_edice + additional_emods,
+                        dice_config=self._config.dice_config, edice_config=self._config.edice_config)
+        success_list = []
+        for i in range(self._config.auto):
+            success_list.append(attack.get_targeted_successes(target_mod))
+        return success_list
+
     def fire(self, additional_mods: int = 0, additional_emods: int = 0) -> list[Damage]:
         dmg_list: list[Damage] = []
         for dmg in self.get_damage(additional_mods, additional_emods):
             dmg_list.append(Damage(dmg, a_pen=self._a_pen, emp=self._emp))
+        return dmg_list
+
+    def targeted_fire(self, target: int, target_mod: int, additional_mods: int = 0, additional_emods: int = 0) -> list[Damage]:
+        dmg_list: list[Damage] = []
+        for dmg in self.get_targeted_damage(target_mod, additional_mods - target_mod, additional_emods):
+            dmg_list.append(Damage(dmg, a_pen=self._a_pen, emp=self._emp, location=target))
         return dmg_list
 
     def get_rsc(self):

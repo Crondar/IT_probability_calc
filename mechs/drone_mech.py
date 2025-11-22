@@ -13,7 +13,7 @@ class MechConfig:
         self.edice_config = edice.EDiceConfig(dice_config=self.dice_config, min_explode=6)
 
         self.mech_stats = MechStatsConfig(charge=10, base_evasion=2, reflex=5, intellect=1, endurance=3)
-
+        self.rsc = 320
         self.emp_hardening = 2
 
         self.hit_location_dice_num = 3
@@ -26,6 +26,11 @@ class MechConfig:
         LimbConfig(name= 'R shoulder',armor=0, hp=0, hit_location_range=range.Range(18,18)),
         LimbConfig(name= 'L shoulder',armor=0, hp=0, hit_location_range=range.Range(3, 3)),
         ]
+
+
+        self.weapons = [
+            weapons.magnetic_anti_material_rifle
+        ] * 4
 
         # self.weapon1 = WeaponStatsConfig(a_pen=8, base_dice=4,
         #                                  stat_mod=self.mech_stats.reflex,

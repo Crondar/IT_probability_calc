@@ -10,22 +10,41 @@ class Mech:
         for limb in self._config.limbs:
             self._limbs.append(Limb(limb))
 
-        self._weapons = {}
-        for k in self._config.weapon_set_dict.keys():
-            w_set = []
-            for weapon in self._config.weapon_set_dict[k]:
-                w_set.append(Weapon(weapon))
-            self._weapons[k] = w_set
+        # self._weapons = {}
+        # for k in self._config.weapon_set_dict.keys():
+        #     w_set = []
+        #     for weapon in self._config.weapon_set_dict[k]:
+        #         w_set.append(Weapon(weapon))
+        #     self._weapons[k] = w_set
+        self._weapons = []
+        for w in self._config.weapons:
+            self._weapons.append(Weapon(w, self._config.mech_stats))
 
         self._evasion = self._config.mech_stats.base_evasion
         self._charge = self._config.mech_stats.charge
         self._emp_hardening = self._config.emp_hardening
+        self._rsc = self._config.rsc
 
-    def roll_weapon_set(self, set_name: str, additional_mods: int = 0, additional_emods: int = 0) -> list[Damage]:
+    def fire_all(self, distance: int=1, additional_mods: int = 0, additional_emods: int = 0) -> list[Damage]:
         dmg_list: list[Damage] = []
-        for weapon in self._weapons[set_name]:
+        for weapon in self._weapons:
             dmg_list += weapon.fire(additional_mods=additional_mods, additional_emods=additional_emods)
+            self._rsc -= weapon.get_rsc()
         return dmg_list
+
+    def fire_all_targeted(self, target: int, target_mods: int,  distance: int=1, additional_mods: int = 0, additional_emods: int = 0) -> list[Damage]:
+        dmg_list = []
+        for weapon in self._weapons:
+            dmg_list += weapon.targeted_fire(target, target_mods, additional_mods, additional_emods=additional_emods)
+            self._rsc -= weapon.get_rsc()
+        return dmg_list
+
+
+    # def roll_weapon_set(self, set_name: str, additional_mods: int = 0, additional_emods: int = 0) -> list[Damage]:
+    #     dmg_list: list[Damage] = []
+    #     for weapon in self._weapons[set_name]:
+    #         dmg_list += weapon.fire(additional_mods=additional_mods, additional_emods=additional_emods)
+    #     return dmg_list
 
     def roll_hit_location(self) -> int:
         total: int = 0
@@ -58,7 +77,7 @@ class Mech:
         adjusted_dmg = self.strip_evasion(damage_list)
         for dmg in adjusted_dmg:
             if dmg.location == 0:
-                hit_loc = self.get_adjusted_hit_location(self.roll_hit_location())
+                dmg.location = self.get_adjusted_hit_location(self.roll_hit_location())
             for limb in self._limbs:
                 if limb.hit_range.contains(dmg.location):
                     print(f"{limb.name}, dmg: {dmg.damage}, AP: {dmg.a_pen}, EMP: {dmg.emp}")
