@@ -4,21 +4,18 @@ from config.edice import EDiceConfig
 
 from hardware.dice import Dice
 
-# config1=EDiceConfig(
-#     min_explode=6, dice_config=DiceConfig(sides=6, min_success=5))
-# i = config1.min_explode
-
-
 class Edice(Dice):
 
-    def __init__(self, config = EDiceConfig) -> None:
+    def __init__(self, config: EDiceConfig) -> None:
         self._config = config
-        super().__init__(self._config)
+        self._min_explode = self._config.min_explode
+        super().__init__(self._config.dice_config)
+
 
     @override
     def get_successes(self) -> int:
         result = self.roll()
-        if result >= self._config.min_explode:
+        if result >= self._min_explode:
             return 1 + self.get_successes()
         elif result >= self._config.min_success:
             return 1

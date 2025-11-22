@@ -12,3 +12,6 @@ from .weapon import Weapon
 
 from . import limb
 from .limb import Limb
+
+from . import damage
+from .damage import Damage

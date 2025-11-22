@@ -1,9 +1,9 @@
 from typing import NamedTuple
 from config import EDiceConfig, DiceConfig
 
-class WeaponConfig(NamedTuple):
+class WeaponStatsConfig(NamedTuple):
     base_dice: int
-    stat_mod: int
+    stat_mod: str
     dice_config: DiceConfig
     edice_config: EDiceConfig
     auto: int = 1
