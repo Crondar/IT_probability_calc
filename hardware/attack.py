@@ -24,7 +24,7 @@ class Attack:
         successes = 0
         pool = self._dice_pool
         pool.sort(key=lambda dice: dice == Edice, reverse=True)
-        for dice in pool[0:target_mod]:
+        for dice in pool[0:max(-target_mod, len(pool))]:
             successes += dice.get_successes()
         return successes
 

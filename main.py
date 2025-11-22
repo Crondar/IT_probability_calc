@@ -27,7 +27,7 @@ fight = Fights(mech2, mech1)
 sumhp = 0
 for i in range(10000):
     # mech2.take_damage(mech1.fire_all())
-    mech2.display_stats()
+    # mech2.display_stats()
     mech2.take_damage(mech1.fire_all_targeted(10, 2))
     sumhp += mech2.get_limb_states()[0].hp
     mech2.reset_full()
