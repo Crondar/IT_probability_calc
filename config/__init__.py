@@ -12,3 +12,6 @@ from .limb import LimbConfig
 
 from . import mechstats
 from .mechstats import MechStatsConfig
+
+from . import weapon_set
+from .weapon_set import WeaponSetConfig

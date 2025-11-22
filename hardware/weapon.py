@@ -34,9 +34,21 @@ class Weapon:
             dmg_list.append(Damage(dmg, a_pen=self._a_pen, emp=self._emp))
         return dmg_list
 
+    def get_rsc(self):
+        return self._config.rsc * self._config.auto
+
     @property
     def a_pen(self) -> int:
         return self._a_pen
+
+    @property
+    def name(self) -> str:
+        return self._config.name
+
+    @property
+    def svg(self) -> int:
+        return self._config.svg
+
 
     # @property
     # def additional_mods(self) -> int:
