@@ -1,3 +1,5 @@
+import weapons
+from config import WeaponStatsConfig
 from hardware import *
 from mechs.drone_mech import MechConfig
 
@@ -115,6 +117,18 @@ class Mech:
     def charge(self) -> int:
         return self._charge
 
+    @property
+    def rsc(self) -> int:
+        return self._rsc
 
+    @property
+    def weapons(self) -> list[WeaponStatsConfig]:
+        return self._config.weapons
+
+    @weapons.setter
+    def weapons(self, weapons:list[WeaponStatsConfig]):
+        self._weapons = []
+        for w in weapons:
+            self._weapons.append(Weapon(w, self._config.mech_stats))
 
 

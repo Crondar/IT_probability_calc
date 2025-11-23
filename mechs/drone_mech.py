@@ -29,8 +29,11 @@ class MechConfig:
 
 
         self.weapons = [
-            weapons.magnetic_anti_material_rifle
-        ] * 4
+            weapons.magnetic_anti_material_rifle,
+            weapons.magnetic_anti_material_rifle,
+            weapons.magnetic_anti_material_rifle,
+            weapons.magnetic_anti_material_rifle,
+        ]
 
         # self.weapon1 = WeaponStatsConfig(a_pen=8, base_dice=4,
         #                                  stat_mod=self.mech_stats.reflex,

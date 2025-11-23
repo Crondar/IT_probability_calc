@@ -15,21 +15,19 @@ mech2 = Mech(mech_config2)
 
 fight = Fights(mech2, mech1)
 
-# print(fight.get_avg_defender_state('drones', 100))
+fight.run()
 
-# edice_sum = 0
-#
-# for i in range(1000000):
-#     edice_sum += edice.get_successes()
-# print(edice_sum/1000000)
-
-
-sumhp = 0
-for i in range(10000):
-    # mech2.take_damage(mech1.fire_all())
-    # mech2.display_stats()
-    mech2.take_damage(mech1.fire_all_targeted(10, 2))
-    sumhp += mech2.get_limb_states()[0].hp
-    mech2.reset_full()
-print(sumhp/10000)
-mech2.display_stats()
+# sumhp = 0
+# sumfails = 0
+# reps = 10000
+# for i in range(reps):
+#     # mech2.take_damage(mech1.fire_all())
+#     # mech2.display_stats()
+#     mech2.take_damage(mech1.fire_all_targeted(10, 2))
+#     if mech2.get_limb_states()[0].hp > 0:
+#         sumfails += 1
+#     sumhp += mech2.get_limb_states()[0].hp
+#     mech2.reset_full()
+# print(sumhp/reps)
+# print(f"{(1 - sumfails/reps) * 100}% chance of one-shotting")
+# mech2.display_stats()

@@ -3,7 +3,7 @@ from config.limb import LimbConfig
 from config.weapon import WeaponStatsConfig
 from config.mechstats import MechStatsConfig
 from math_help import range
-import weapons
+import weapons as wep
 
 
 class MechConfig:
@@ -28,6 +28,4 @@ class MechConfig:
         ]
 
 
-        self.weapons = [
-            weapons.magnetic_anti_material_rifle
-        ] * 4
+        self.weapons = [wep.magnetic_anti_material_rifle] * 4 +[wep.rapid_fire_laser] * 12 + [wep.magnetic_auto_rifle] * 7
