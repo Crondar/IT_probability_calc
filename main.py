@@ -1,6 +1,6 @@
 from vehicles.mech import Mech as Mech
 from mechs.drone_mech import MechConfig as DroneMech
-from mechs.laser_mech import MechConfig as LaserMech
+from mechs.lilun import MechConfig as LaserMech
 from fight import Fights
 from hardware import Edice
 from config.edice import EDiceConfig
@@ -21,9 +21,9 @@ fight.run()
 # sumfails = 0
 # reps = 10000
 # for i in range(reps):
-#     # mech2.take_damage(mech1.fire_all())
+#     mech2.take_damage(mech1.fire_all())
 #     # mech2.display_stats()
-#     mech2.take_damage(mech1.fire_all_targeted(10, 2))
+#     # mech2.take_damage(mech1.fire_all_targeted(10, 2))
 #     if mech2.get_limb_states()[0].hp > 0:
 #         sumfails += 1
 #     sumhp += mech2.get_limb_states()[0].hp

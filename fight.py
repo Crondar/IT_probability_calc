@@ -40,6 +40,11 @@ class Fights:
             input_index = self._get_user_int("enter the index of the weapons you are going to fire: ")
             if  input_index < len(current_weapons):
                 new_weapons.append(current_weapons.pop(input_index))
+            else:
+                new_weapons = current_weapons
+                print("current selection")
+                display_weapon_list(new_weapons)
+                break
             print("current selection")
             display_weapon_list(new_weapons)
         self._attacker.weapons = new_weapons

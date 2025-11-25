@@ -18,6 +18,7 @@ class Mech:
         #     for weapon in self._config.weapon_set_dict[k]:
         #         w_set.append(Weapon(weapon))
         #     self._weapons[k] = w_set
+
         self._weapons = []
         for w in self._config.weapons:
             self._weapons.append(Weapon(w, self._config.mech_stats))
