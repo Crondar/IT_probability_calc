@@ -18,13 +18,13 @@ class MechConfig:
 
         self.hit_location_dice_num = 3
         self.limbs = [
-        LimbConfig(name= 'chassis',armor=8, ablative_armor=0, hp=7, hit_location_range=range.Range(9, 12)),
-        LimbConfig(name= 'L leg',armor=6, hp=3, hit_location_range=range.Range(4,5)),
-        LimbConfig(name= 'R arm',armor=6, hp=4, hit_location_range=range.Range(16,17)),
-        LimbConfig(name= 'L arm',armor=6, hp=6, hit_location_range=range.Range(6,8)),
-        LimbConfig(name= 'R leg',armor=6, hp=3, hit_location_range=range.Range(13,15)),
-        LimbConfig(name= 'R shoulder',armor=0, hp=0, hit_location_range=range.Range(18,18)),
-        LimbConfig(name= 'L shoulder',armor=0, hp=0, hit_location_range=range.Range(3, 3)),
+        LimbConfig(name='chassis', armor=8, ablative_armor=0, hp=7, hit_location_range=range.Range(9, 12)),
+        LimbConfig(name='L leg', armor=6, hp=3, hit_location_range=range.Range(4,5)),
+        LimbConfig(name='R arm', armor=6, hp=4, hit_location_range=range.Range(16,17)),
+        LimbConfig(name='L arm', armor=6, hp=6, hit_location_range=range.Range(6,8)),
+        LimbConfig(name='R leg', armor=6, hp=3, hit_location_range=range.Range(13,15)),
+        LimbConfig(name='R shoulder', armor=0, hp=0, hit_location_range=range.Range(18,18)),
+        LimbConfig(name='L shoulder', armor=0, hp=0, hit_location_range=range.Range(3, 3)),
         ]
 
 
