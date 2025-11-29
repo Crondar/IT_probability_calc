@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=4 uid="uid://cqac4pqwuikea"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dupyi"]
+resource_name = "custom1(Clone)"
+albedo_color = Color(0.57100004, 0.5590001, 0.73600006, 1)
+metallic = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nvf8t"]
+_surfaces = [{
+"aabb": AABB(-0.5773506, 0, -0.50000036, 1.1547012, 0.25, 1.0000007),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAwABAAAAAgABAAMAAAAEAAMAAgAFAAAABAAAAAUAAwAEAAYABgAEAAUABgAHAAMAAgADAAcABgAFAAgABQACAAkACQAIAAUACQACAAcACAAKAAYACgAIAAkABwAGAAoACQALAAoACgALAAcABwALAAkA"),
+"name": "custom1(Clone)",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("/z////7/AAD/PwAA/v8AAAAAAAD/fwAA/78AAP//AAD/v/////8AAAAA////fwAA//////9/AAD//wAA/38AAP8///8AAAAA/z8AAAAAAAD/v///AAAAAP+/AAAAAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_g5l23"]
+resource_name = "unit_hex_mesh"
+_surfaces = [{
+"aabb": AABB(-0.5773506, 0, -0.50000036, 1.1547012, 0.25, 1.0000007),
+"attribute_data": PackedByteArray("2O7/v9juVNX/f1TV/3//v/8//7//v/+//79U1f8/VNX/P6mq/7+pqv//VNUAAFTV/7////8/////f/+//39U1SYRVNUmEf+//3//v/9/VNUmEVTVJhH/v9ju/7/Y7lTV/39U1f9//7///1TV/7////8///8AAFTV/7+pqv8/qar/v1TV/z9U1f8//7//v/+/"),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgACgAMAAsADAANAAsADgAPABAAEAARAA4AEgATABQAFAAVABIAFgAXABgAGAAZABYAGgAbABwAHAAdABoAHQAeABoAHQAfAB4AIAAhACIAIgAjACAA"),
+"material": SubResource("StandardMaterial3D_dupyi"),
+"name": "custom1(Clone)",
+"primitive": 3,
+"uv_scale": Vector4(1.1547012, 3.0000007, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("/z////7/qqr/PwAA/v+qqgAAAAD/f6qqAAD///9/qqr/v///AAD///8///8AAP///z8AAAAA////vwAAAAD///8///8AAP+//7///wAA/7///////3//vwAA////f/+//7///////7//P////v//vwAA////f1TVAAAAAP9/VNX/PwAAAABU1f8///8AAFTV//////9/qar//wAA/3+pqv+/AAD//6mq/7//////qar/v///AABU1f+/AAAAAFTV//8AAP9/VNX//////39U1f//AAD/f/+//78AAAAA/7//PwAAAAD/vwAAAAD/f/+//78AAP///7//PwAA/v//v/+/AAD//wCA/z8AAP7/AID/P////v8AgP+//////wCA/3////9/////f////3////9/////f////3////9///////9/////f////3////9/////f////3//f////3////9/////f////38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAAAAP9/AAD/fwAA/38AAP9/AAD/fwAA/3//f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_nvf8t")
+
+[node name="HexTile" type="StaticBody3D"]
+
+[node name="mergedBlocks(Clone)" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_g5l23")
+skeleton = NodePath("")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.313, 0)
+depth = 0.625
+polygon = PackedVector2Array(0.57737285, 0.00028014835, 0.2889592, 0.4996884, -0.28883237, 0.50042284, -0.5775058, -0.00025425758, -0.2889705, -0.49969646, 0.2885661, -0.5000273)
