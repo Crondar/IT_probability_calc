@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b40vamc7r3og0"]
+
+[ext_resource type="PackedScene" uid="uid://cqac4pqwuikea" path="res://hex_tile.tscn" id="1_fj7yv"]
+[ext_resource type="Script" uid="uid://dvqci7jimws72" path="res://hex_grid.gd" id="1_tlwt5"]
+[ext_resource type="Script" uid="uid://bjq3ne6ckgqlt" path="res://camera_controller.gd" id="2_tlwt5"]
+
+[node name="World" type="Node3D"]
+
+[node name="HexGrid" type="Node3D" parent="."]
+script = ExtResource("1_tlwt5")
+grid_size = Vector2i(6, 6)
+
+[node name="HexTile" parent="HexGrid" instance=ExtResource("1_fj7yv")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.95599806, -0.1915874, 0.22217555, 0, 0.75731426, 0.6530506, -0.293373, -0.6243151, 0.723991, 0.67629546, 1.5456886, 1.8392423)
+script = ExtResource("2_tlwt5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.78669804, 0.617338, 0, -0.617338, 0.78669804, 0.6247285, 5.35744, 5.8588686)

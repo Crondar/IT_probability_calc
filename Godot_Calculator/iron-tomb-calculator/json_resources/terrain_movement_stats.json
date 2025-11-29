@@ -1,0 +1,418 @@
+{
+	"Brush": {
+		"Flight": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": 0
+		},
+		"Infantry": {
+			"Cover": 1,
+			"Evasion": 1,
+			"Movement": 0
+		},
+		"Jump": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": 0
+		},
+		"Tracked": {
+			"Cover": 1,
+			"Evasion": 1,
+			"Movement": 0
+		},
+		"Walk": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": 0
+		},
+		"Wheeled": {
+			"Cover": 1,
+			"Evasion": 0,
+			"Movement": -1
+		}
+	},
+	"Deep Water": {
+		"Flight": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": 0
+		},
+		"Infantry": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": -99
+		},
+		"Jump": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": -1
+		},
+		"Tracked": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": -99
+		},
+		"Walk": {
+			"Cover": 0,
+			"Evasion": -1,
+			"Movement": -2
+		},
+		"Wheeled": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": -99
+		}
+	},
+	"Flat": {
+		"Flight": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": 0
+		},
+		"Infantry": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": 0
+		},
+		"Jump": {
+			"Cover": 0,
+			"Evasion": 1,
+			"Movement": 0
+		},
+		"Tracked": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": 0
+		},
+		"Walk": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": 0
+		},
+		"Wheeled": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": 0
+		}
+	},
+	"Forest": {
+		"Flight": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": 0
+		},
+		"Infantry": {
+			"Cover": 1,
+			"Evasion": 2,
+			"Movement": -1
+		},
+		"Jump": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": 0
+		},
+		"Tracked": {
+			"Cover": 1,
+			"Evasion": 0,
+			"Movement": -1
+		},
+		"Walk": {
+			"Cover": 1,
+			"Evasion": 1,
+			"Movement": -1
+		},
+		"Wheeled": {
+			"Cover": 1,
+			"Evasion": -1,
+			"Movement": -2
+		}
+	},
+	"Micro-G": {
+		"Flight": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": 0
+		},
+		"Infantry": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": -99
+		},
+		"Jump": {
+			"Cover": 0,
+			"Evasion": -2,
+			"Movement": -1
+		},
+		"Tracked": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": -99
+		},
+		"Walk": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": -99
+		},
+		"Wheeled": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": -99
+		}
+	},
+	"Micro-G Debris": {
+		"Flight": {
+			"Cover": 1,
+			"Evasion": 1,
+			"Movement": -1
+		},
+		"Infantry": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": -99
+		},
+		"Jump": {
+			"Cover": 1,
+			"Evasion": -1,
+			"Movement": -1
+		},
+		"Tracked": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": -99
+		},
+		"Walk": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": -99
+		},
+		"Wheeled": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": -99
+		}
+	},
+	"Micro-G Urban": {
+		"Flight": {
+			"Cover": 0,
+			"Evasion": 2,
+			"Movement": -1
+		},
+		"Infantry": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": -99
+		},
+		"Jump": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": -2
+		},
+		"Tracked": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": -99
+		},
+		"Walk": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": -99
+		},
+		"Wheeled": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": -99
+		}
+	},
+	"Road": {
+		"Flight": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": 0
+		},
+		"Infantry": {
+			"Cover": 0,
+			"Evasion": -1,
+			"Movement": 1
+		},
+		"Jump": {
+			"Cover": 0,
+			"Evasion": 1,
+			"Movement": 0
+		},
+		"Tracked": {
+			"Cover": 0,
+			"Evasion": -1,
+			"Movement": 1
+		},
+		"Walk": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": 0
+		},
+		"Wheeled": {
+			"Cover": 0,
+			"Evasion": -1,
+			"Movement": 1
+		}
+	},
+	"Rocky": {
+		"Flight": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": 0
+		},
+		"Infantry": {
+			"Cover": 0,
+			"Evasion": 1,
+			"Movement": 0
+		},
+		"Jump": {
+			"Cover": 0,
+			"Evasion": 1,
+			"Movement": 0
+		},
+		"Tracked": {
+			"Cover": 0,
+			"Evasion": 1,
+			"Movement": -1
+		},
+		"Walk": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": -1
+		},
+		"Wheeled": {
+			"Cover": 0,
+			"Evasion": 1,
+			"Movement": -2
+		}
+	},
+	"Ruins": {
+		"Flight": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": 0
+		},
+		"Infantry": {
+			"Cover": 0,
+			"Evasion": 2,
+			"Movement": -1
+		},
+		"Jump": {
+			"Cover": 0,
+			"Evasion": 1,
+			"Movement": 0
+		},
+		"Tracked": {
+			"Cover": 0,
+			"Evasion": 1,
+			"Movement": -2
+		},
+		"Walk": {
+			"Cover": 0,
+			"Evasion": 1,
+			"Movement": -1
+		},
+		"Wheeled": {
+			"Cover": 0,
+			"Evasion": 1,
+			"Movement": -3
+		}
+	},
+	"Sand": {
+		"Flight": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": 0
+		},
+		"Infantry": {
+			"Cover": 0,
+			"Evasion": -1,
+			"Movement": 0
+		},
+		"Jump": {
+			"Cover": 0,
+			"Evasion": 1,
+			"Movement": 0
+		},
+		"Tracked": {
+			"Cover": 0,
+			"Evasion": -1,
+			"Movement": 0
+		},
+		"Walk": {
+			"Cover": 0,
+			"Evasion": -1,
+			"Movement": -1
+		},
+		"Wheeled": {
+			"Cover": 0,
+			"Evasion": -1,
+			"Movement": -2
+		}
+	},
+	"Scree": {
+		"Flight": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": 0
+		},
+		"Infantry": {
+			"Cover": 0,
+			"Evasion": -1,
+			"Movement": -1
+		},
+		"Jump": {
+			"Cover": 0,
+			"Evasion": 1,
+			"Movement": 0
+		},
+		"Tracked": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": -2
+		},
+		"Walk": {
+			"Cover": 0,
+			"Evasion": -2,
+			"Movement": -3
+		},
+		"Wheeled": {
+			"Cover": 0,
+			"Evasion": -1,
+			"Movement": -3
+		}
+	},
+	"Shallow Water": {
+		"Flight": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": 0
+		},
+		"Infantry": {
+			"Cover": 0,
+			"Evasion": -2,
+			"Movement": -1
+		},
+		"Jump": {
+			"Cover": 0,
+			"Evasion": 1,
+			"Movement": 0
+		},
+		"Tracked": {
+			"Cover": 0,
+			"Evasion": -1,
+			"Movement": -1
+		},
+		"Walk": {
+			"Cover": 0,
+			"Evasion": 0,
+			"Movement": -1
+		},
+		"Wheeled": {
+			"Cover": 0,
+			"Evasion": -1,
+			"Movement": -2
+		}
+	}
+}
