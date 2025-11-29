@@ -1,3 +1,6 @@
-res://hex_tile.tscn
 res://world.tscn
+res://hex_grid.gd
 res://camera_controller.gd
+res://hex_tile.tscn
+res://hex_tile.gd
+res://tile_material.gd

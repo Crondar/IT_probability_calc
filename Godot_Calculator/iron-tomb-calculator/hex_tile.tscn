@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=4 uid="uid://cqac4pqwuikea"]
+[gd_scene load_steps=5 format=4 uid="uid://cqac4pqwuikea"]
+
+[ext_resource type="Script" uid="uid://bw6slkwuorrt4" path="res://hex_tile.gd" id="1_2crfn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dupyi"]
 resource_name = "custom1(Clone)"
@@ -38,13 +40,13 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nvf8t")
 
 [node name="HexTile" type="StaticBody3D"]
+script = ExtResource("1_2crfn")
 
-[node name="mergedBlocks(Clone)" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, 0, 0)
+[node name="HexMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_g5l23")
 skeleton = NodePath("")
 
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.313, 0)
-depth = 0.625
+[node name="HexCollision" type="CollisionPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.5, 0)
 polygon = PackedVector2Array(0.57737285, 0.00028014835, 0.2889592, 0.4996884, -0.28883237, 0.50042284, -0.5775058, -0.00025425758, -0.2889705, -0.49969646, 0.2885661, -0.5000273)

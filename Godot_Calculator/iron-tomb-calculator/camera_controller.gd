@@ -1,21 +1,24 @@
 extends Camera3D
 
-# Reference to camera in your scene
-@onready var camera = self
+## A flag indicating the right mouse button is being held down and the screen should move.
+var camera_move: bool = false
+var sensitivity: float = .005
+var min_angle: float = -PI
+var max_angle: float = PI
 
 # Hexagonal Prism as a StaticBody or MeshInstance with collision enabled
 #@onready var prism = $HexPrism
 
 func _input(event):
 	if event is InputEventMouseButton:
-		#if event.button_index == Input.BUTTON_LEFT and event.pressed:
-			var from = camera.project_ray_origin(event.position)
-			var to = from + camera.project_ray_normal(event.position) * 1000
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			var from = project_ray_origin(event.position)
+			var to = from + project_ray_normal(event.position) * 1000
 			var space_state = get_world_3d().direct_space_state
 			var params := PhysicsRayQueryParameters3D.new()
 			params.from = from
 			params.to = to
-			params.exclude = [camera]
+			params.exclude = [self]
 			
 			var result = space_state.intersect_ray(params)
 			
@@ -27,6 +30,20 @@ func _input(event):
 				#if collider == prism:
 				#var side_index = get_hex_prism_side(collider, normal)
 				print("Clicked on side of ", collider, " at ", target_position, ": ", normal)
+		elif event.button_index == MOUSE_BUTTON_RIGHT:
+			camera_move = event.pressed
+			#if camera_move:
+				#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+				#Input.
+			#else:
+				#Input.set_mouse_mode(Input.MOUSE_MODE_)
+	elif event is InputEventMouseMotion and camera_move:
+		rotation.y -= (event.relative.x * sensitivity)
+		global_rotation.x -= (event.relative.y * sensitivity)
+		global_rotation.x = clamp(global_rotation.x, min_angle, max_angle)
+
+func _process(_delta: float) -> void:
+	pass
 
 ## Function that maps the collision normal to a hex prism side
 #func get_hex_prism_side(collider: Node3D, normal: Vector3) -> int:

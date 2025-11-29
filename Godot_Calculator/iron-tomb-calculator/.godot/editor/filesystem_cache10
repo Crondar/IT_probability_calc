@@ -1,8 +1,10 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1764380346
+::res://::1764385178
+camera_controller.gd::GDScript::3052873869705399961::1764383521::0::1::::<>Camera3D<><>0<>0<><>::
+hex_tile.tscn::PackedScene::5896036901197250160::1764381860::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::8880974265733978566::1764367530::1764367902::1::::<><><>0<>0<>91c50fa915f33bc9a2d6bc05dcf1f178<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 unit_hex.glb::PackedScene::1939960621506584625::1764380346::1764380346::1::::<><><>0<>0<>d553d025ec70cb1b68f16a952a34a9ff<>res://.godot/imported/unit_hex.glb-f72bbf94ed0603268c3f13708f00b6aa.scn::
-world.tscn::PackedScene::4474782284743209101::1764372796::0::1::::<><><>0<>0<><>::
+world.tscn::PackedScene::4474782284743209101::1764383361::0::1::::<><><>0<>0<><>::uid://cqac4pqwuikea::::res://hex_tile.tscn<>uid://bjq3ne6ckgqlt::::res://camera_controller.gd
 ::res://addons/::1764372728
 ::res://addons/debug_draw_3d/::1764372729
 debug_draw_3d.gdextension::GDExtension::1307723806687219837::1764372729::0::1::::<><><>0<>0<><>::
