@@ -11,20 +11,29 @@ config_version=5
 [application]
 
 config/name="Iron Tomb Calculator"
-run/main_scene="uid://b40vamc7r3og0"
+run/main_scene="uid://cqdsjn52g0ham"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+MultiplayerHandler="*res://multiplayer_handler.gd"
+ButtonFeedback="*res://addons/button_feedback/button_feedback.gd"
 
 [debug_draw_3d]
 
 settings/addon_root_folder="res://addons/debug_draw_3d"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/button_feedback/plugin.cfg", "res://addons/nodetunnel/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
 "res://addons/": "purple",
-"res://examples_dd3d/": "purple",
-"res://json_resources/": "orange"
+"res://default_json_resources/": "orange",
+"res://examples_dd3d/": "purple"
 }
 
 [rendering]

@@ -9,4 +9,3 @@ func set_color(color: Color) -> void:
 	var mesh: MeshInstance3D = $HexMesh
 	var material: Material = mesh.mesh.surface_get_material(0)
 	material.set_albedo(color)
-	print("Set color to", material.get_albedo())

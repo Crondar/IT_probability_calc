@@ -41,9 +41,34 @@ func _input(event):
 		rotation.y -= (event.relative.x * sensitivity)
 		global_rotation.x -= (event.relative.y * sensitivity)
 		global_rotation.x = clamp(global_rotation.x, min_angle, max_angle)
+		
+		set_camera_rot.rpc(global_rotation)
 
-func _process(_delta: float) -> void:
-	pass
+
+func _physics_process(delta: float) -> void:
+	var camera_delta := Vector3.ZERO
+	if Input.is_key_pressed(KEY_UP):
+		camera_delta -= Vector3(0, 0, 1).rotated(Vector3.UP, rotation.y)
+	if Input.is_key_pressed(KEY_DOWN):
+		camera_delta += Vector3(0, 0, 1).rotated(Vector3.UP, rotation.y)
+	if Input.is_key_pressed(KEY_LEFT):
+		camera_delta -= Vector3(1, 0, 0).rotated(Vector3.UP, rotation.y)
+	if Input.is_key_pressed(KEY_RIGHT):
+		camera_delta += Vector3(1, 0, 0).rotated(Vector3.UP, rotation.y)
+	
+	#global_position += camera_delta.normalized() * delta
+	set_camera_pos.rpc(global_position + camera_delta.normalized() * delta)
+
+
+@rpc("authority", "call_local", "reliable")
+func set_camera_pos(new_position: Vector3) -> void:
+	global_position = new_position
+
+
+@rpc("authority", "call_remote", "reliable")
+func set_camera_rot(new_rotation: Vector3) -> void:
+	global_rotation = new_rotation
+
 
 ## Function that maps the collision normal to a hex prism side
 #func get_hex_prism_side(collider: Node3D, normal: Vector3) -> int:

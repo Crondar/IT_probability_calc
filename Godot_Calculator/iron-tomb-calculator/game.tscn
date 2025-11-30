@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b40vamc7r3og0"]
+
+[ext_resource type="Script" uid="uid://5brp8047klur" path="res://game.gd" id="1_fc0e3"]
+[ext_resource type="Script" uid="uid://dvqci7jimws72" path="res://hex_grid.gd" id="2_7jktm"]
+[ext_resource type="PackedScene" uid="uid://cqac4pqwuikea" path="res://hex_tile.tscn" id="3_ryrav"]
+[ext_resource type="Script" uid="uid://bjq3ne6ckgqlt" path="res://camera_controller.gd" id="4_eow3j"]
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_fc0e3")
+
+[node name="HexGrid" type="Node3D" parent="."]
+script = ExtResource("2_7jktm")
+grid_size = Vector2i(20, 20)
+
+[node name="HexTile" parent="HexGrid" instance=ExtResource("3_ryrav")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.08727745, -0.75586456, 0.6488848, 3.7252903e-09, 0.6513704, 0.75876, -0.9961841, -0.06622264, 0.05684995, 1.6606159, 3.5424886, -2.5733855)
+fov = 100.09909
+script = ExtResource("4_eow3j")
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="TheSun" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 0.78669804, 0.617338, 0, -0.617338, 0.78669804, 0.6247285, 5.35744, 5.8588686)

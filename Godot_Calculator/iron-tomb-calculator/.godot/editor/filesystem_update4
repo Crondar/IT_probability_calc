@@ -4,3 +4,9 @@ res://camera_controller.gd
 res://hex_tile.tscn
 res://hex_tile.gd
 res://tile_material.gd
+res://multiplayer_handler.gd
+res://main_menu.tscn
+res://main_menu.gd
+res://player_data.gd
+res://game.tscn
+res://game.gd
