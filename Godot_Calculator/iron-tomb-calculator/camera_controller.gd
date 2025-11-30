@@ -60,12 +60,12 @@ func _physics_process(delta: float) -> void:
 	set_camera_pos.rpc(global_position + camera_delta.normalized() * delta)
 
 
-@rpc("authority", "call_local", "reliable")
+@rpc("any_peer", "call_local", "reliable")
 func set_camera_pos(new_position: Vector3) -> void:
 	global_position = new_position
 
 
-@rpc("authority", "call_remote", "reliable")
+@rpc("any_peer", "call_remote", "reliable")
 func set_camera_rot(new_rotation: Vector3) -> void:
 	global_rotation = new_rotation
 
