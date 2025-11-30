@@ -56,8 +56,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_key_pressed(KEY_RIGHT):
 		camera_delta += Vector3(1, 0, 0).rotated(Vector3.UP, rotation.y)
 	
-	#global_position += camera_delta.normalized() * delta
-	set_camera_pos.rpc(global_position + camera_delta.normalized() * delta)
+	if camera_delta:
+		set_camera_pos.rpc(global_position + camera_delta.normalized() * delta)
 
 
 @rpc("any_peer", "call_local", "reliable")
