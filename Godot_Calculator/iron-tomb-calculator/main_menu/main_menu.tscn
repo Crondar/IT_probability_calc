@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqdsjn52g0ham"]
+
+[ext_resource type="Script" uid="uid://c66tf4mwbn3tx" path="res://main_menu/main_menu.gd" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://bsase3olqlcf5" path="res://main_menu/player_list.gd" id="2_3shxk"]
+
+[node name="MainMenu" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06t4h")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+
+[node name="Warning" type="Label" parent="HBox/VBox"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Host" type="Button" parent="HBox/VBox"]
+layout_mode = 2
+text = "Host"
+
+[node name="Join" type="Button" parent="HBox/VBox"]
+layout_mode = 2
+text = "Join"
+
+[node name="HostOnlineID" type="LineEdit" parent="HBox/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Host's Online ID"
+
+[node name="ConnectToRelay" type="Button" parent="HBox/VBox"]
+layout_mode = 2
+text = "Connect To Relay"
+
+[node name="RelayIP" type="LineEdit" parent="HBox/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "relay.nodetunnel.io"
+placeholder_text = "Relay IP Address"
+virtual_keyboard_type = 7
+
+[node name="RelayPort" type="SpinBox" parent="HBox/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 65535.0
+value = 9998.0
+rounded = true
+update_on_text_changed = true
+prefix = "Port"
+
+[node name="MyOnlineID" type="LineEdit" parent="HBox/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Press 'Connect To Relay' to generate an online ID"
+alignment = 1
+editable = false
+
+[node name="VSeparator" type="VSeparator" parent="HBox"]
+layout_mode = 2
+
+[node name="PlayerList" type="VBoxContainer" parent="HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+script = ExtResource("2_3shxk")
+
+[node name="Entries" type="VBoxContainer" parent="HBox/PlayerList"]
+layout_mode = 2
+
+[node name="AddUser" type="Button" parent="HBox/PlayerList"]
+layout_mode = 2
+text = "+"
+
+[connection signal="pressed" from="HBox/VBox/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="HBox/VBox/Join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="HBox/VBox/ConnectToRelay" to="." method="_on_connect_to_relay_pressed"]
+[connection signal="pressed" from="HBox/PlayerList/AddUser" to="HBox/PlayerList" method="_on_add_user_pressed"]

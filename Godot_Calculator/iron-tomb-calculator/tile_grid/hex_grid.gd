@@ -3,7 +3,7 @@ extends Node3D
 @export var grid_size: Vector2i = Vector2i(1, 1)
 @export var default_base_tile_color = Color(0.165, 0.165, 0.165, 1.0)
 
-const tile_pattern: PackedScene = preload("res://hex_tile.tscn")
+const HEX_TILE_SCENE: PackedScene = preload("uid://cqac4pqwuikea")
 
 func _ready() -> void:
 	build_base_grid()
@@ -19,7 +19,7 @@ func build_base_grid() -> void:
 	for x in range(grid_size.x):
 		for y in range(grid_size.y):
 			# Create and add the tile.
-			var new_tile: HexTile = tile_pattern.instantiate()
+			var new_tile: HexTile = HEX_TILE_SCENE.instantiate()
 			add_child(new_tile)
 			
 			# Place it in the world where it needs to be.

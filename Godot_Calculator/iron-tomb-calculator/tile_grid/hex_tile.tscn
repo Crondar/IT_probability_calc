@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://cqac4pqwuikea"]
 
-[ext_resource type="Script" uid="uid://bw6slkwuorrt4" path="res://hex_tile.gd" id="1_2crfn"]
+[ext_resource type="Script" uid="uid://bw6slkwuorrt4" path="res://tile_grid/hex_tile.gd" id="1_2crfn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dupyi"]
 resource_name = "custom1(Clone)"

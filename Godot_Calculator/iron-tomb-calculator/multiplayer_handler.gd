@@ -4,7 +4,7 @@ extends Node
 # Autoload named Lobby
 
 # These signals can be connected to by a UI lobby scene or the game scene.
-signal player_connected(peer_id, player_data)
+signal player_connected(peer_id, my_player_data)
 signal player_disconnected(peer_id)
 signal server_disconnected
 
@@ -16,16 +16,16 @@ const MAX_CONNECTIONS := 20
 
 var peer := NodeTunnelPeer.new()
 
-# This will contain player info for every player,
-# with the keys being each player's unique IDs.
-var players: Dictionary[int, PlayerData] = {}
+# This contains arrays of the player data classes for every player,
+# with the keys being the unique IDs of the computers they're playing on.
+var players: Dictionary[int, Array] = {}
 var my_id: int = 0
 
 # This is the local player info. This should be modified locally
 # before the connection is made. It will be passed to every other peer.
 # For example, the value of "name" can be set to something the player
 # entered in a UI scene.
-var player_data: PlayerData = PlayerData.new()
+var my_player_data: Array[PlayerData] = [PlayerData.new()]
 
 var players_loaded := 0
 
@@ -78,8 +78,8 @@ func create_game() -> Error:
 		#return error
 	#multiplayer.multiplayer_peer = peer
 
-	players[1] = player_data
-	player_connected.emit(1, player_data)
+	players[1] = my_player_data
+	player_connected.emit(1, my_player_data)
 	return OK
 
 
@@ -108,12 +108,12 @@ func player_loaded() -> void:
 # When a peer connects, send them my player info.
 # This allows transfer of all desired data for each player, not only the unique ID.
 func _on_player_connected(id) -> void:
-	_register_player.rpc_id(id, player_data)
+	_register_player.rpc_id(id, my_player_data)
 
 
 @rpc("any_peer", "reliable")
-func _register_player(new_player_data: PlayerData) -> void:
-	var new_player_id = multiplayer.get_remote_sender_id()
+func _register_player(new_player_data: Array[PlayerData]) -> void:
+	var new_player_id: int = multiplayer.get_remote_sender_id()
 	players[new_player_id] = new_player_data
 	player_connected.emit(new_player_id, new_player_data)
 
@@ -125,8 +125,8 @@ func _on_player_disconnected(id) -> void:
 
 func _on_connected_ok() -> void:
 	var peer_id = multiplayer.get_unique_id()
-	players[peer_id] = player_data
-	player_connected.emit(peer_id, player_data)
+	players[peer_id] = my_player_data
+	player_connected.emit(peer_id, my_player_data)
 
 
 func _on_connected_fail() -> void:

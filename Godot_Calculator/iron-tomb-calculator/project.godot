@@ -26,7 +26,7 @@ settings/addon_root_folder="res://addons/debug_draw_3d"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/button_feedback/plugin.cfg", "res://addons/nodetunnel/plugin.cfg")
+enabled=PackedStringArray("res://addons/UDWG/plugin.cfg", "res://addons/button_feedback/plugin.cfg", "res://addons/nodetunnel/plugin.cfg")
 
 [file_customization]
 

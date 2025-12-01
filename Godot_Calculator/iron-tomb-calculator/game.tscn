@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b40vamc7r3og0"]
 
 [ext_resource type="Script" uid="uid://5brp8047klur" path="res://game.gd" id="1_fc0e3"]
-[ext_resource type="Script" uid="uid://dvqci7jimws72" path="res://hex_grid.gd" id="2_7jktm"]
-[ext_resource type="PackedScene" uid="uid://cqac4pqwuikea" path="res://hex_tile.tscn" id="3_ryrav"]
+[ext_resource type="Script" uid="uid://dvqci7jimws72" path="res://tile_grid/hex_grid.gd" id="2_7jktm"]
+[ext_resource type="PackedScene" uid="uid://cqac4pqwuikea" path="res://tile_grid/hex_tile.tscn" id="3_ryrav"]
 [ext_resource type="Script" uid="uid://bjq3ne6ckgqlt" path="res://camera_controller.gd" id="4_eow3j"]
 
 [node name="Game" type="Node3D"]

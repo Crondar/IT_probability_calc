@@ -10,3 +10,10 @@ res://main_menu.gd
 res://player_data.gd
 res://game.tscn
 res://game.gd
+res://main_menu/player_entry.tscn
+res://main_menu/player_entry.gd
+res://main_menu/main_menu.tscn
+res://main_menu/player_list.gd
+res://main_menu/main_menu.gd
+res://tile_grid/tile_material.gd
+res://tile_grid/hex_grid.gd
